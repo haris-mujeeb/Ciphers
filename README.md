@@ -1,4 +1,4 @@
-# MorseCode
+# Morse Code Encoder Decoder
 A MorseCode class, which provides methods to encode text to Morse code and decode a Morse code string back to text.
 Read documentation inside the header files for further explaination.
 
