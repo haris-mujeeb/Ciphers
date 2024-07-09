@@ -18,31 +18,30 @@
 #include <string>
 #include <unordered_map>
 #include <cctype>
+#include "cipher_class.hpp"
 
+
+namespace ciphers {
 /**
- * @class MorseCode
- * @brief Provides methods for encoding and decoding Morse code.
+ * @class Morse
+ * @brief Add methods for encoding and decoding Morse code.
  */
-class MorseCode {
+class Morse : public Cipher {
   public:
-    /**
-     * @brief Constructs a MorseCode object and initializes the Morse code map.
-     */
-    MorseCode();
-    
+
     /**
      * @brief Encodes a given string to Morse code.
      * @param str The string to encode.
      * @return The encoded Morse code string. or '?' if the Morse code is not found.
      */
-    std::string encodeToMorse(const std::string str) const;
+    std::string encoder( const std::string) ;
     
     /**
      * @brief Decodes a given Morse code string to text.
      * @param str The Morse code string to decode.
      * @return The decoded string. or '?' if the Morse code is not found.
      */
-    std::string decodeFromMorse(const std::string str) const;  ///< Map of characters to Morse code.
+    std::string decoder(const std::string) ;  ///< Map of characters to Morse code.
 
 
   private:
@@ -56,20 +55,6 @@ class MorseCode {
         {'5', "....."}, {'6', "-...."}, {'7', "--..."}, {'8', "---.."}, {'9', "----."}, 
         {'0', "-----"}, {' ', " "}
     };
-    
-    /**
-     * @brief Converts a character to its corresponding Morse code string.
-     * @param ch The character.
-     * @return The corresponding Morse code string. or '?' if the Morse code is not found.
-     */
-    std::string charToMorse(const char ch) const;
-    
-    /**
-     * @brief Converts a Morse code string to its corresponding character.
-     * @param morse The Morse code string.
-     * @return The corresponding character. or '?' if the Morse code is not found.
-     */
-    char morseToChar(const std::string morse) const;
-
 };
+}
 #endif // MORSE_H
