@@ -1,28 +1,46 @@
 /**
- * @file main.cpp
- * @brief Demonstrates the usage of MorseCode class for encoding and decoding.
- * 
- * This file contains the main function which demonstrates how to use the 
- * MorseCode class to encode a string to Morse code and decode it back.
- * 
+ * @file morse_encoder_decoder.cpp
+ * @brief Implementation of Morse code encoding and decoding functions.
+ * see the complete version on 'https://github.com/haris-mujeeb/MorseCode/'
  * @author Muhammad Haris Mujeeb
- * @date 07-05-2024
+ * @date 07-07-2024
  */
-
 #include <iostream>
-#include "morse.hpp"
+#include "ciphers.hpp"
 
-int main() {
-    MorseCode myCoder;
+int main(int argc, char* argv[]) {
+    // ciphers::Morse myCipherEngine; 
+    ciphers::Caeser myCipherEngine; 
+    try {
+        // if (argc < 2) {
+        //     std::cerr << "Error: Please provide an executable file argument." << std::endl;
+        // return 1;
+        // }
+        // else {
+        
+            // std::string  text = "Hello Easy C++ project!";
+            // std::string  encoded = myCipherEngine.encoder(text);
+            // std::string  decoded = myCipherEngine.decoder(encoded); 
+            // std::cout << text << std::endl;
+            // std::cout << encoded << std::endl;
+            // std::cout << decoded << std::endl;
 
-    std::string text = "Hello My C++ project!";
-    std::string encoded = myCoder.encodeToMorse(text);
-    std::string decoded = myCoder.decodeFromMorse(encoded);
+            std::string inputfileName = "testData.txt";
+            std::string outputFileName = "encodedData.txt";
+            // std::string inputfileName = argv[1];
+            // std::string outputFileName = argv[2];
 
-    std::cout << "Original text: " << text << std::endl;
-    std::cout << "Encoded text: " <<  encoded << std::endl;
-    std::cout << "Decoded text: " << decoded << std::endl;
-    std::cout << std::endl;
-    std::cout << "Note: '?' means corresponding character was not found." 
-            << std::endl << " See documentation for further details";
+            std::string text = myCipherEngine.readFromFile(inputfileName);
+            // std::string encoded = myCipherEngine.encoder(text);
+            std::string encoded = myCipherEngine.encoder(text, 5);
+            myCipherEngine.writeToFile(encoded, outputFileName);
+
+            std::string encodedText = myCipherEngine.readFromFile(outputFileName);
+            // std::string  decodedText = myCipherEngine.decoder(encodedText); 
+            std::string  decodedText = myCipherEngine.decoder(encodedText, 5); 
+            myCipherEngine.writeToFile(decodedText, "decodedData.txt");
+        // }
+    } catch (const std::runtime_error& error) {
+        std::cerr << error.what() << std::endl; 
+    }
 }
