@@ -6,7 +6,7 @@
  * a Morse code string back to its original representation. It uses an
  * unordered map to store the mappings between characters and Morse code.
  * 
- * @author Muhammad Haris Mujeeb
+ * @author Syed Haider Rizvi
  * @date 07-05-2024
  */
 
