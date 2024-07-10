@@ -2,8 +2,8 @@
 ```
 chiper <cipherType> <action> [shiftBy] <inputfile> [outputfile]
 ```
-Where,
-* **action**: The action to perform: "encode" or "decode".
+Where, the command line arguments are:
+* **action**: The action to perform encoding using 'encode' or decoding 'decode'.
 * **shift** (only for caeser): The number of positions to shift for encoding/decoding using caeser cipher.
 * **inputfile**: The name of the input file containing the text to process.
 * **outputfile** (optional): The name of the output file to save the processed text. Default name is 'output.txt'.
