@@ -1,14 +1,42 @@
 /**
  * @file morse_encoder_decoder.cpp
  * @brief Implementation of Morse code encoding and decoding functions.
- * see the complete version on 'https://github.com/haris-mujeeb/MorseCode/'
- * @author Muhammad Haris Mujeeb
+ * 
+ * This file contains the main function that processes command-line arguments to encode
+ * or decode text using selected cipher. The program reads input from a file,
+ * processes it, and writes the result to an output file.
+ * 
+ * @version 1.0
  * @date 07-07-2024
+ * 
+ * @license MIT License
+ * 
+ * @author Muhammad Haris Mujeeb
  */
+
 #include <iostream>
 #include "ciphers.hpp"
 
+/**
+ * @brief Processes Morse code encoding or decoding based on the action provided.
+ * 
+ * @param action The action to perform: "encode" or "decode".
+ * @param inputfileName The name of the input file containing the text to process.
+ * @param outputFileName The name of the output file to save the processed text.
+ * @throws std::runtime_error if the action is not recognized.
+ */
 void processMorseCipher(const std::string& action, const std::string& inputfileName, const std::string& outputFileName);
+
+
+/**
+ * @brief Processes Caesar cipher encoding or decoding based on the action provided.
+ * 
+ * @param action The action to perform: "encode" or "decode".
+ * @param shift The number of positions to shift for encoding/decoding.
+ * @param inputfileName The name of the input file containing the text to process.
+ * @param outputFileName The name of the output file to save the processed text.
+ * @throws std::runtime_error if the action is not recognized.
+ */
 void processCaeserCipher(const std::string& action, const std::string& shiftBy, const std::string& inputfileName, const std::string& outputFileName);
 int main(int argc, char* argv[]) {
     try {
