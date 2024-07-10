@@ -50,4 +50,4 @@ Decoded text: HELLO MY CPP PROJECT
 
 # Authors
 - Muhammad Haris Mujeeb (https://github.com/haris-mujeeb)
-- Syed Muhammad Haider Rizvi
+- Syed Muhammad Haider Rizvi (https://github.com/haider-rizvi-github)
