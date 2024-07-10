@@ -7,7 +7,7 @@ INCLUDE	:= include
 LIB		:= lib
 
 LIBRARIES	:=
-EXECUTABLE	:= main
+EXECUTABLE	:= cipher
 
 
 all: $(BIN)/$(EXECUTABLE)
