@@ -2,9 +2,15 @@
 ```
 chiper <cipherType> <action> [shiftBy] <inputfile> [outputfile]
 ```
+Where,
+* **action**: The action to perform: "encode" or "decode".
+* **shift** (only for caeser): The number of positions to shift for encoding/decoding using caeser cipher.
+* **inputfile**: The name of the input file containing the text to process.
+* **outputfile** (optional): The name of the output file to save the processed text. Default name is 'output.txt'.
 
 # Description
 This program performs encoding and decoding of text using different cipher techniques. It reads input text from a file, processes it based on the specified action (encode or decode), and writes the result to an output file.
+
 
 **Example code:**
 encode a text file using morse cipher (name for output file is optional): 
