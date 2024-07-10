@@ -40,7 +40,8 @@ See documentation for further details
 Original text: Hello My CPP project
 Encoded text: ROVVY Wc M Z\YTOM^
 Decoded text: HELLO MY CPP PROJECT
+```
 
 # Authors
-Muhammad Haris Mujeeb (https://github.com/haris-mujeeb)
-Syed Muhammad Haider Rizvi
+- Muhammad Haris Mujeeb (https://github.com/haris-mujeeb)
+- Syed Muhammad Haider Rizvi
