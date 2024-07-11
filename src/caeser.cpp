@@ -6,8 +6,8 @@
  * a Morse code string back to its original representation. It uses an
  * unordered map to store the mappings between characters and Morse code.
  * 
- * @author Muhammad Haris Mujeeb
- * @date 07-05-2024
+ * @author Syed Muhammad Haider Rizvi
+ * @date 11-07-2024
  */
 
 #include "caeser.hpp"
@@ -15,9 +15,9 @@
 std::string ciphers::Caeser::encoder( const std::string& istring, int shiftBy) {
     std::string ostring;
     for (char ch : istring) {
-        if (ch != ' ') {
-            ch = std::toupper(ch); // Convert to uppercase
-            ch = char(int(ch) + shiftBy);  
+        if (std::isalpha(ch)) {
+            char base = std::islower(ch) ? 'a' : 'A';
+            ch = ( ch - base + shiftBy + 26 ) % 26 + base;  
         }
         ostring.push_back(ch);
     }
