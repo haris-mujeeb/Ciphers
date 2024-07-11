@@ -12,7 +12,7 @@
 
 #include "morse.hpp"
 
-std::string ciphers::Morse::encoder( const std::string istring) {
+std::string ciphers::Morse::encoder( const std::string& istring) {
     std::string encodedString;
     for (char ch : istring) {
         ch = std::toupper(ch);
@@ -29,7 +29,7 @@ std::string ciphers::Morse::encoder( const std::string istring) {
 }
 
 
-std::string ciphers::Morse::decoder( const std::string istring) {
+std::string ciphers::Morse::decoder( const std::string& istring) {
     std::string decodedString;
     const int maxLen = 5; // max possible len of any morse code
 
