@@ -1,30 +1,59 @@
 /**
- * @file morse.cpp
- * @brief Implementation of Morse code encoding and decoding functions.
+ * @file caeser.cpp
+ * @brief Implementation of Caeser code encoding and decoding functions.
  *
- * This file contains functions to encode a string to Morse code and decode
- * a Morse code string back to its original representation. It uses an
- * unordered map to store the mappings between characters and Morse code.
+ * This file contains functions to encode a string to Caeser code and decode
+ * a Caeser code string back to its original representation.
  * 
- * @author Muhammad Haris Mujeeb
- * @date 07-05-2024
+ * @author Syed Muhammad Haider Rizvi 
+ * @date 07-07-2024
  */
 
 #include "caeser.hpp"
 
-std::string ciphers::Caeser::encoder( const std::string istring, int shiftBy) {
-    std::string ostring;
-    for (char ch : istring) {
+std::string ciphers::Caeser::encoder( const std::string input_message, int shiftBy) {
+    std::string encoded_message;
+    unsigned char eholder;
+    std::string Fencoded;
+    for (unsigned char ch : input_message) {
+        if(int(ch) <= 32 && int(ch) >= 126)
+            throw std::runtime_error( "Restricted character used in text!");
         if (ch != ' ') {
-            ch = std::toupper(ch); // Convert to uppercase
-            ch = char(int(ch) + shiftBy);  
-        }
-        ostring.push_back(ch);
+            eholder = ch; // Convert to uppercase
+            eholder = char(int(ch) + shiftBy);
+        } else eholder = ' ';
+        encoded_message.push_back(eholder);
     }
-    return ostring;
+    for(unsigned char ch : encoded_message){
+        if (ch != ' ') {
+            eholder= std::toupper(ch);
+        } else eholder = ' ';
+        Fencoded.push_back(eholder);
+    }
+    return encoded_message;
 }
 
 
 std::string ciphers::Caeser::decoder( const std::string istring, int shiftBy) {     
-    return ciphers::Caeser::encoder(istring, -shiftBy) ;
+    std::string decoded;
+    char dholder;
+    std::string Fdecoded; 
+    for (size_t i = 0; i < istring.size(); i++) {
+        char ch = istring[i];
+        if(int(ch) <= 32 && int(ch) >= 126)
+            throw std::runtime_error( "Restricted character used in text!");
+        if (ch != ' ') {
+            // dholder = std::toupper(ch); // Convert to uppercase
+            dholder = char(int(ch) - shiftBy);
+        } else dholder = ' ';
+        decoded.push_back(dholder);
+    }
+    for (size_t i = 0; i < istring.size(); i++){
+        char ch = istring[i];
+        if (ch != ' ') {
+            dholder = std::toupper(ch);
+        } else dholder = ' ';
+        Fdecoded.push_back(dholder);
+    }
+    return Fdecoded;
 }
