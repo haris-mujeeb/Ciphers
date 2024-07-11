@@ -4,11 +4,32 @@ run the 'chiper.exe' (found inside build folder) using following command syntax:
 chiper <cipherType> <action> [shiftBy] <inputfile> [outputfile]
 ```
 Where, the command line arguments are:
-* **cipherType**: Type of cipher to be used (e.g. 'morse', 'caeser', etc.)
-* **action**: The action to perform encoding using 'encode' or decoding 'decode'.
+* **cipherType**: Type of cipher to be used (e.g. ```morse```, ```caeser```, etc.)
+* **action**: The action to perform encoding using ```encode``` or decoding using ```decode```
 * **shift** (only for caeser): The number of positions to shift for encoding/decoding using caeser cipher.
 * **inputfile**: The name of the input file containing the text to process.
-* **outputfile** (optional): The name of the output file to save the processed text (default name is 'output.txt').
+* **outputfile** (optional): The name of the output file to save the processed text (default name is ```'output.txt'```).
+  
+# MakeFile
+- use ```make``` command for compiling the project.
+- use ```make clean``` command for deleteing all generated binary files.
+- Some commands for testing are also included in the makefile:
+  - For example, use ```make testMorseEncode``` for running following tasks:
+  ```shell
+  cipher morse encode testData.txt encodedData.txt
+  ```
+  - For example, use ```make testMorseEncode``` for running following tasks:
+  ```shell
+  cipher morse decode encodedData.txt decodedData.txt
+  ```
+  - For example, use ```make testCaeserEncode``` for running following tasks:
+  ```shell
+  cipher caeser encode 5 testData.txt encodedData.txt
+  ```
+  - For example, use ```make testCaeserDecode``` for running following tasks:
+  ```shell
+  cipher caeser decode 5 encodedData.txt decodedData.txt
+  ```
 
 # Description
 This program performs encoding and decoding of text using different cipher techniques. It reads input text from a file, processes it based on the specified action (encode or decode), and writes the result to an output file.
