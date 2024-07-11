@@ -26,11 +26,11 @@ testMorseDecode: $(BIN)/cipher
 	$(BIN)/cipher morse decode encodedData.txt decodedData.txt
 	
 testCaeserEncode: $(BIN)/cipher
-	$(BIN)/cipher caeser 5 encode testData.txt encodedData.txt
+	$(BIN)/cipher caeser encode 5 testData.txt encodedData.txt
 
 
 testCaeserDecode: $(BIN)/cipher
-	$(BIN)/cipher caeser 5 decode encodedData.txt decodedData.txt
+	$(BIN)/cipher caeser decode 5 encodedData.txt decodedData.txt
 
 
 clean:
