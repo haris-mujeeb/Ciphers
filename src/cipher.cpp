@@ -98,6 +98,7 @@ void processMorseCipher(const std::string& action, const std::string& inputfileN
         std::cerr << "Error: Unknown action '" << action << "' for morse cipher." << std::endl;
         throw std::runtime_error("Invalid action for morse cipher");
     }
+    std::cout << "'" << inputfileName << "' " << action << "d to '" << outputFileName <<"' using morse cipher" << std::endl;
 }
 
 
@@ -123,4 +124,5 @@ void processCaeserCipher(const std::string& action, const std::string& shift, co
         std::cerr << "Error: Unknown action '" << action << "' for caeser cipher." << std::endl;
         throw std::runtime_error("Invalid action for caesar cipher");
     }
+    std::cout << "'" << inputfileName << "' " << action << "d to '" << outputFileName <<"' using morse cipher" << std::endl;
 }
