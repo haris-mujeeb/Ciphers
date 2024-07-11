@@ -10,18 +10,24 @@
  * @date 07-05-2024
  */
 
+#include <algorithm>
 #include "morse.hpp"
+
+std::string findMorseCode(std::vector<ciphers::MorseMapping> map, char key) { 
+    auto lambda = [key] (const ciphers::MorseMapping& pair) { return pair.character == key; };
+    auto iter = std::find_if( map.begin(), map.end(), lambda );
+    if ( iter != map.end() ) {
+        return iter->morseCode;
+    } else {
+        return "?";
+    }
+}
 
 std::string ciphers::Morse::encoder( const std::string istring) {
     std::string encodedString;
     for (char ch : istring) {
         ch = std::toupper(ch);
-        auto iter = morseCodeMap.find(ch);
-        std::string morse;
-        if (iter != morseCodeMap.end()) 
-            morse = iter->second;
-        else 
-            morse = "?";
+        std::string morse = findMorseCode(morseCodeMap, ch);
         encodedString += morse;
         encodedString += " ";
     }
@@ -41,8 +47,8 @@ std::string ciphers::Morse::decoder( const std::string istring) {
             // find char for morse
             bool charFound = false;
             for (const auto& pair : morseCodeMap) { 
-                if ( pair.second == morse ) { 
-                    decodedString.push_back(pair.first);
+                if ( pair.morseCode == morse ) { 
+                    decodedString.push_back(pair.character);
                     charFound = true;
                 }
              }
