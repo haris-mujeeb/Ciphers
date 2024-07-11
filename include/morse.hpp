@@ -16,22 +16,12 @@
 #define MORSE_H
 
 #include <string>
-#include <vector>
+#include <unordered_map>
 #include <cctype>
 #include "cipher_class.hpp"
 
 
 namespace ciphers {
-/**
- * @struct MorseMapping
- * @brief A struct to store character and its Morse code.
- */
-  struct MorseMapping {
-  char character;
-  std::string morseCode;
-};
-
-
 /**
  * @class Morse
  * @brief Add methods for encoding and decoding Morse code.
@@ -55,8 +45,7 @@ class Morse : public Cipher {
 
 
   private:
-  // use ordered maps
-    const std::vector<MorseMapping> morseCodeMap = {
+    const std::unordered_map<char, std::string> morseCodeMap = {
         {'A', ".-"},    {'B', "-..."},  {'C', "-.-."},  {'D', "-.."},   {'E', "."}, 
         {'F', "..-."},  {'G', "--."},   {'H', "...."},  {'I', ".."},    {'J', ".---"}, 
         {'K', "-.-"},   {'L', ".-.."},  {'M', "--"},    {'N', "-."},    {'O', "---"}, 
