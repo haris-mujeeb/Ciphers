@@ -124,5 +124,5 @@ void processCaeserCipher(const std::string& action, const std::string& shift, co
         std::cerr << "Error: Unknown action '" << action << "' for caeser cipher." << std::endl;
         throw std::runtime_error("Invalid action for caesar cipher");
     }
-    std::cout << "'" << inputfileName << "' " << action << "d to '" << outputFileName <<"' using morse cipher" << std::endl;
+    std::cout << "'" << inputfileName << "' " << action << "d to '" << outputFileName <<"' using caeser cipher" << std::endl;
 }
