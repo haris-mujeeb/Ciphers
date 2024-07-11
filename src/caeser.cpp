@@ -13,7 +13,6 @@
 
 std::string ciphers::Caeser::encoder( const std::string input_message, int shiftBy) {
     std::string encoded_message;
-    std::string encoded_message;
     unsigned char eholder;
     std::string Fencoded;
     for (unsigned char ch : input_message) {
@@ -30,7 +29,7 @@ std::string ciphers::Caeser::encoder( const std::string input_message, int shift
             eholder= std::toupper(ch);
             Fencoded.push_back(eholder);
         }
-        }
+    }
     return encoded_message;
 }
 
@@ -54,6 +53,4 @@ std::string ciphers::Caeser::decoder( const std::string istring, int shiftBy) {
             Fdecoded.push_back(dholder);
         }
         return Fdecoded;
-    }
-    return Fdecoded;
 }
