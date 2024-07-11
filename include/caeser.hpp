@@ -33,14 +33,14 @@ class Caeser : public Cipher {
      * @param str The string to encode.
      * @return The encoded Morse code string. or '?' if the Morse code is not found.
      */
-    std::string encoder(const std::string, int) ;
+    std::string encoder(const std::string&, int) ;
     
     /**
      * @brief Decodes a given Morse code string to text.
      * @param str The Morse code string to decode.
      * @return The decoded string. or '?' if the Morse code is not found.
      */
-    std::string decoder(const std::string, int) ;  ///< Map of characters to Morse code.
+    std::string decoder(const std::string&, int) ;  ///< Map of characters to Morse code.
 };
 }
 #endif // CAESER_H
