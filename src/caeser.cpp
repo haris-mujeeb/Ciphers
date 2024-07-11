@@ -12,7 +12,7 @@
 
 #include "caeser.hpp"
 
-std::string ciphers::Caeser::encoder( const std::string istring, int shiftBy) {
+std::string ciphers::Caeser::encoder( const std::string& istring, int shiftBy) {
     std::string ostring;
     for (char ch : istring) {
         if (ch != ' ') {
@@ -25,6 +25,6 @@ std::string ciphers::Caeser::encoder( const std::string istring, int shiftBy) {
 }
 
 
-std::string ciphers::Caeser::decoder( const std::string istring, int shiftBy) {     
+std::string ciphers::Caeser::decoder( const std::string& istring, int shiftBy) {     
     return ciphers::Caeser::encoder(istring, -shiftBy) ;
 }
