@@ -19,5 +19,19 @@ run: clean all
 $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
 	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) -L$(LIB) $^ -o $@ $(LIBRARIES)
 
+testMorseEncode: $(BIN)/cipher
+	$(BIN)/cipher morse encode testData.txt encodedData.txt
+
+testMorseDecode: $(BIN)/cipher
+	$(BIN)/cipher morse encode encodedData.txt decodedData.txt
+	
+testCaeserEncode: $(BIN)/cipher
+	$(BIN)/cipher cipher 5 encode testData.txt encodedData.txt
+
+
+testCaeserDecode: $(BIN)/cipher
+	$(BIN)/cipher chiper 5 decode encodedData.txt decodedData.txt
+
+
 clean:
 	-rm $(BIN)/*
