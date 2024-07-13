@@ -1,12 +1,12 @@
 /**
- * @file morse.cpp
- * @brief Implementation of Morse code encoding and decoding functions.
+ * @file caeser.cpp
+ * @brief Implementation of Caeser code encoding and decoding functions.
  *
  * This file contains functions to encode a string to Caeser code and decode
- * a Caeser code string back to its original representation. * 
+ * a Caeser code string back to its original representation.
  * 
  * @author Syed Muhammad Haider Rizvi
- * @date 11-07-2024
+ * @date 13-07-2024
  */
 
 #ifndef CAESER_H
@@ -20,7 +20,7 @@
 namespace ciphers {
 /**
  * @class Caeser
- * @brief Add methods for encoding and decoding Morse code.
+ * @brief Add methods for encoding and decoding Caeser code.
  */
 class Caeser : public Cipher {
   public:
@@ -28,7 +28,7 @@ class Caeser : public Cipher {
     /**
      * @brief Encodes a given string to Morse code.
      * @param str The string to encode.
-     * @return The encoded Morse code string. or '?' if the Morse code is not found.
+     * @return The encoded string.
      */
     std::string encoder(const std::string& istring, int shiftBy) {
         std::string ostring;
@@ -43,11 +43,11 @@ class Caeser : public Cipher {
     }
     
     /**
-     * @brief Decodes a given Morse code string to text.
-     * @param str The Morse code string to decode.
-     * @return The decoded string. or '?' if the Morse code is not found.
+     * @brief Decodes a given Caeser code string to text.
+     * @param str The Caeser code string to decode.
+     * @return The decoded string.
      */
-    std::string decoder(const std::string& istring, int shiftBy) {  ///< Map of characters to Morse code.
+    std::string decoder(const std::string& istring, int shiftBy) {
         return Caeser::encoder(istring, -shiftBy) ;
     };
 };
