@@ -2,9 +2,8 @@
  * @file morse.cpp
  * @brief Implementation of Morse code encoding and decoding functions.
  *
- * This file contains functions to encode a string to Morse code and decode
- * a Morse code string back to its original representation. It uses an
- * unordered map to store the mappings between characters and Morse code.
+ * This file contains functions to encode a string to Caeser code and decode
+ * a Caeser code string back to its original representation. * 
  * 
  * @author Syed Muhammad Haider Rizvi
  * @date 11-07-2024
