@@ -9,8 +9,37 @@
  * @date 07-07-2024
  */
 
-#include "caeser.hpp"
+#ifndef CAESER_H
+#define CAESER_H
 
+#include <string>
+#include <unordered_map>
+#include <cctype>
+#include "cipher_class.hpp"
+
+namespace ciphers {
+/**
+ * @class Caeser
+ * @brief Add methods for encoding and decoding Morse code.
+ */
+class Caeser : public Cipher {
+  public:
+
+    /**
+     * @brief Encodes a given string to Morse code.
+     * @param str The string to encode.
+     * @return The encoded Morse code string. or '?' if the Morse code is not found.
+     */
+    std::string encoder(const std::string, int) ;
+    
+    /**
+     * @brief Decodes a given Morse code string to text.
+     * @param str The Morse code string to decode.
+     * @return The decoded string. or '?' if the Morse code is not found.
+     */
+    std::string decoder(const std::string, int) ;  ///< Map of characters to Morse code.
+};
+}
 std::string ciphers::Caeser::encoder( const std::string input_message, int shiftBy) {
     std::string encoded_message;
     unsigned char eholder;
@@ -54,3 +83,4 @@ std::string ciphers::Caeser::decoder( const std::string istring, int shiftBy) {
         }
         return Fdecoded;
 }
+#endif // CAESER_H

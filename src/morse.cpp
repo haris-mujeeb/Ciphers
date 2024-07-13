@@ -10,8 +10,64 @@
  * @date 07-05-2024
  */
 
+
+#ifndef MORSE_H
+#define MORSE_H
+
+#include <string>
+#include <vector>
+#include <cctype>
 #include <algorithm>
-#include "morse.hpp"
+#include "cipher_class.hpp"
+
+
+namespace ciphers {
+/**
+ * @struct MorseMapping
+ * @brief A struct to store character and its Morse code.
+ */
+  struct MorseMapping {
+  char character;
+  std::string morseCode;
+};
+
+
+/**
+ * @class Morse
+ * @brief Add methods for encoding and decoding Morse code.
+ */
+class Morse : public Cipher {
+  public:
+
+    /**
+     * @brief Encodes a given string to Morse code.
+     * @param str The string to encode.
+     * @return The encoded Morse code string. or '?' if the Morse code is not found.
+     */
+    std::string encoder( const std::string) ;
+    
+    /**
+     * @brief Decodes a given Morse code string to text.
+     * @param str The Morse code string to decode.
+     * @return The decoded string. or '?' if the Morse code is not found.
+     */
+    std::string decoder(const std::string) ;  ///< Map of characters to Morse code.
+
+
+  private:
+  // use ordered maps
+    const std::vector<MorseMapping> morseCodeMap = {
+        {'A', ".-"},    {'B', "-..."},  {'C', "-.-."},  {'D', "-.."},   {'E', "."}, 
+        {'F', "..-."},  {'G', "--."},   {'H', "...."},  {'I', ".."},    {'J', ".---"}, 
+        {'K', "-.-"},   {'L', ".-.."},  {'M', "--"},    {'N', "-."},    {'O', "---"}, 
+        {'P', ".--."},  {'Q', "--.-"},  {'R', ".-."},   {'S', "..."},   {'T', "-"}, 
+        {'U', "..-"},   {'V', "...-"},  {'W', ".--"},   {'X', "-..-"},  {'Y', "-.--"}, 
+        {'Z', "--.."},  {'1', ".----"}, {'2', "..---"}, {'3', "...--"}, {'4', "....-"}, 
+        {'5', "....."}, {'6', "-...."}, {'7', "--..."}, {'8', "---.."}, {'9', "----."}, 
+        {'0', "-----"}, {' ', " "}
+    };
+};
+}
 
 std::string findMorseCode(std::vector<ciphers::MorseMapping> map, char key) { 
     auto lambda = [key] (const ciphers::MorseMapping& pair) { return pair.character == key; };
@@ -62,3 +118,5 @@ std::string ciphers::Morse::decoder( const std::string istring) {
     }       
     return decodedString;
 }
+
+#endif // MORSE_H
